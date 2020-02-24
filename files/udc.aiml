@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+    <category>
+        <pattern>HELLO</pattern>
+        <template><srai>HI</srai></template>
+    </category>
+    <category>
+        <pattern>HEY</pattern>
+        <template><srai>HI</srai></template>
+    </category>
+    <category>
+        <pattern>HI</pattern>
+        <template>How can I help today?</template>
+    </category>
+  
+    <category>
+        <pattern>^ JOB ^</pattern>
+        <template><srai>CAREER</srai></template>
+    </category>
+    <category>
+        <pattern>^ CAREER ^</pattern>
+        <template>Got it! Just to confirm, are you seeking career advice?</template>
+    </category>
+    <category>
+        <pattern>YES</pattern>
+        <that>* SEEKING CAREER ADVICE</that>
+        <template>Okay. What <set name="topic">advice</set> are you looking for?</template>
+    </category>
+    <category>
+        <pattern>NO</pattern>
+        <that>* SEEKING CAREER ADVICE</that>
+        <template>PENDING RESPONSE</template>
+    </category>
+    
+    <topic name="advice">
+        <category>
+            <pattern>^ NOT SURE ^</pattern>
+            <template>Ok. What field of computer science are you interested in?</template>
+        </category>
+        
+        <category>
+            <pattern>^ WEB ^</pattern>
+            <that>* FIELD OF COMPUTER SCIENCE ARE YOU INTERESTED IN</that>
+            <template>Got it. So you're interested in web development correct?</template>
+        </category>
+        <category>
+            <pattern>NO</pattern>
+            <that>^ SO YOU'RE INTERESTED IN WEB DEVELOPMENT CORRECT ^</that>
+            <template><srai>NOT SURE</srai></template>
+        </category>
+        <category>
+            <pattern>YES</pattern>
+            <that>^ WEB DEVELOPMENT ^</that>
+            <template>Okay, are you interested in front-end or back-end development?</template>
+        </category>
+        <category>
+            <pattern>^ FRONT ^</pattern>
+            <that>^ ARE YOU INTERESTED IN ^ DEVELOPMENT ^</that>
+            <template>Great! You should look into becoming a front-end engineer.</template>
+        </category>
+        <category>
+            <pattern>^ BACK ^</pattern>
+            <that>^ ARE YOU INTERESTED IN ^ DEVELOPMENT ^</that>
+            <template>Great! You should look into becoming a back-end engineer.</template>
+        </category>
+        <category>
+            <pattern>^ BOTH ^</pattern>
+            <that>^ ARE YOU INTERESTED IN ^ DEVELOPMENT ^</that>
+            <template>Great! You should look into becoming a full-stack engineer.</template>
+        </category>
+        
+        <category>
+            <pattern>^ NETWORKING ^</pattern>
+            <that>* FIELD OF COMPUTER SCIENCE ARE YOU INTERESTED IN</that>
+            <template>Great! You should look into becoming a network engineer.</template>
+        </category>
+        
+        <category>
+            <pattern>^ SECURITY ^</pattern>
+            <that>* FIELD OF COMPUTER SCIENCE ARE YOU INTERESTED IN</that>
+            <template>Great! You should look into becoming a security engineer.</template>
+        </category>
+        
+        <category>
+            <pattern>^ DATA ^</pattern>
+            <that>* FIELD OF COMPUTER SCIENCE ARE YOU INTERESTED IN</that>
+            <template>Got it. Are you interested in data engineering or data research?</template>
+        </category>
+        <category>
+            <pattern>^ ENGINEERING ^</pattern>
+            <that>ARE YOU INTERESTED IN DATA ENGINEERING OR DATA RESEARCH</that>
+            <template>Great! You should look becoming a data engineer.</template>
+        </category>
+        <category>
+            <pattern>^ RESEARCH ^</pattern>
+                <that>ARE YOU INTERESTED IN DATA ENGINEERING OR DATA RESEARCH</that>
+            <template>Great! You should look becoming a data scientist.</template>
+        </category>
+        
+        <category>
+            <pattern>^ AI ^</pattern>
+            <that>* FIELD OF COMPUTER SCIENCE ARE YOU INTERESTED IN</that>
+            <template>Got it. Would you rather apply AI solutions to real world problems or research new AI solutions?</template>
+        </category>
+        <category>
+            <pattern>^ APPLY ^</pattern>
+            <that>WOULD YOU RATHER APPLY AI SOLUTIONS TO REAL WORLD PROBLEMS OR RESEARCH NEW AI SOLUTIONS</that>
+            <template>Great! You should look into becoming a machine learning engineer.</template>
+        </category>
+        <category>
+            <pattern>^ RESEARCH ^</pattern>
+            <that>WOULD YOU RATHER APPLY AI SOLUTIONS TO REAL WORLD PROBLEMS OR RESEARCH NEW AI SOLUTIONS</that>
+            <template>Great! You should look into becoming an AI researcher.</template>
+        </category>
+    </topic>
+    
+    <category>
+        <pattern>*</pattern>
+        <template>Sorry, I have no answer for that. Please schedule an appointment with a career advisor for assistance.</template>
+    </category>
+</aiml>
